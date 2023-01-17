@@ -3,7 +3,7 @@
     "description": "Crud Generator Vdes Framework",
     "type": "library",
     "require": {
-        "php": "7.3|8"
+        "php": "^7.3|^8.0"
     },
     "license": "MIT",
     "autoload": {
