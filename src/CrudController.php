@@ -169,7 +169,7 @@ class CrudController extends Controller
             try {
                 Crudgen::addRoute("Route::resource('/".strtolower($request->modelName)."s', \\App\\Http\\Controllers\\Admin\\".ucwords($request->modelName)."Controller::class);\n\t/*new route*/");
                 Artisan::call('crud:init');
-                Artisan::call('create:permissions '.strtolower($request->modelName).'s');
+                Artisan::call('create:permissions '.strtolower($request->modelName));
                 return response()->json(['success'=>'Data Berhasil Diproses']);
             } catch (Exception $e) {
                 throw response()->json(['error'=>'Gagal Memproses Data, silahkan cek folder migration, model, dan controller anda. mungkin file/data dengan nama model sudah dibuat sebelumnya']);
