@@ -2,10 +2,13 @@
 
 @section('content')
     <div class="col-md-12 col-12">
-        <div class="card">
-            <div class="card-header">
-                <h4 class="card-title">{{ $title }}</h4>
+        <div class="page-header">
+            <div class="page-title">
+                <h4>{!! ucwords({{modelNameVariable}}) !!}</h4>
+                <h6>Tambah {{modelNameVariable}} baru</h6>
             </div>
+        </div>
+        <div class="card">
             <div class="card-content">
                 <div class="card-body">
                     @if (count($errors) > 0)
@@ -18,7 +21,7 @@
                             </ul>
                         </div>
                     @endif
-                    <form action="{{ '{{modelNameVariable}}s.update', ${{modelNameVariable}}->id }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('{{modelNameVariable}}s.update', ${{modelNameVariable}}->id) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-body">
@@ -37,20 +40,5 @@
             </div>
         </div>
     </div>
-    @once
-        @push('ext_css')
-            <link rel="stylesheet" type="text/css" href="{{ url('app-assets/css/summernote.min.css') }}">
-        @endpush
-        @push('ext_scripts')
-            {{-- <script src="{{ url('app-assets/js/jquery-3.5.1.js') }}"></script> --}}
-            <script src="{{ url('app-assets/js/summernote.js') }}"></script>
-            <script>
-                $(document).ready(function() {
-                    $('#body').summernote({
-                        height: '300px'
-                    });
-                });
-            </script>
-        @endpush
-    @endonce
+    
 @endsection

@@ -64,15 +64,20 @@
                                         {{htmlTd}}
                                         <td>
                                             <center>
-                                                @can('{{modelNameVariable}}-edit')
+                                                @role('{{modelNameVariable}}-edit')
                                                     <a class="btn btn-primary btn-sm"
                                                         href="{{ route('{{modelNameVariable}}s.edit', ${{modelNameVariable}}->id) }}">Ubah</a>
-                                                @endcan
-                                                @can('{{modelNameVariable}}-delete')
+                                                @endrole
+                                                @role('{{modelNameVariable}}-delete')
                                                     {!! Form::open(['method' => 'DELETE', 'route' => ['{{modelNameVariable}}s.destroy', ${{modelNameVariable}}->id], 'style' => 'display:inline']) !!}
                                                     {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
                                                     {!! Form::close() !!}
-                                                @endcan
+                                                    <form action="{{route('{{modelNameVariable}}s.destroy',${{modelNameVariable}}->id)}}" method="post" style="display:inline">
+                                                        @csrf
+                                                        @method('DELETE')
+                                                        <button class="btn btn-danger btn-sm">Hapus</button>
+                                                    </form>
+                                                @endrole
                                             </center>
                                         </td>
                                     </tr>
@@ -84,7 +89,7 @@
                                 {{ $labelcount }}
                             </div>
                             <div class="float-end">
-                                {{ $permissions->appends(['keyword' => Request::get('keyword')])->links('pagination::bootstrap-4') }}
+                                {{ ${{modelNameVariable}}s->appends(['keyword' => Request::get('keyword')])->links('pagination::bootstrap-4') }}
                             </div>
                         </div>
                     </div>

@@ -1,21 +1,18 @@
 {
-    "name": "vdes/crud",
-    "description": "Crud Generator Vdes Framework",
-    "type": "library",
-    "require": {
-        "php": "7.3|8"
-    },
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Vdes\\Crud\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "bimacoding",
-            "email": "bimacoding@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev"
+  "name": "vdes/crud",
+  "description": "Crud Generator Vdes Framework",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Vdes\\Crud\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "bimacoding",
+      "email": "bimacoding@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev"
 }

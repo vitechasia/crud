@@ -57,6 +57,6 @@ class InsertPermissions extends Command
                 'slug'=>$name_route.'s-delete'
             ]
         ];
-        Permission::create($input);
+        Permission::insert($input);
     }
 }
