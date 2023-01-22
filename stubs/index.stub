@@ -8,7 +8,7 @@
                 <h6>Semua Data {{ $title }}</h6>
             </div>
             <div class="page-btn">
-                @role('{{modelNameVariable}}-create')
+                @role('{{modelNameVariable}}s-create')
                     <a class="btn btn-added" href="{{ route('{{modelNameVariable}}s.create') }}"><img src="assets/img/icons/plus.svg" class="me-2" alt="img"> Tambah Baru</a>
                 @endrole
             </div>
@@ -64,14 +64,12 @@
                                         {{htmlTd}}
                                         <td>
                                             <center>
-                                                @role('{{modelNameVariable}}-edit')
+                                                @role('{{modelNameVariable}}s-edit')
                                                     <a class="btn btn-primary btn-sm"
                                                         href="{{ route('{{modelNameVariable}}s.edit', ${{modelNameVariable}}->id) }}">Ubah</a>
                                                 @endrole
-                                                @role('{{modelNameVariable}}-delete')
-                                                    {!! Form::open(['method' => 'DELETE', 'route' => ['{{modelNameVariable}}s.destroy', ${{modelNameVariable}}->id], 'style' => 'display:inline']) !!}
-                                                    {!! Form::submit('Hapus', ['class' => 'btn btn-danger btn-sm']) !!}
-                                                    {!! Form::close() !!}
+                                                @role('{{modelNameVariable}}s-delete')
+                                                    
                                                     <form action="{{route('{{modelNameVariable}}s.destroy',${{modelNameVariable}}->id)}}" method="post" style="display:inline">
                                                         @csrf
                                                         @method('DELETE')
